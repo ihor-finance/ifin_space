@@ -53,6 +53,7 @@
     "@typescript-eslint/parser": "^5.20.0",
     "eslint": "^8.13.0",
     "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.4.0"
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "netlify-plugin-image-optim": "^0.4.0"
   }
 }
