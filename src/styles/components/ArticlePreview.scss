@@ -1,0 +1,32 @@
+.article-preview {
+  height: 570px;
+  padding: 15px;
+  border-radius: 15px;
+  transition: all .3s;
+  box-shadow: 0 0 24px 1px rgb(0 0 0 / 8%);
+
+  &__image {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    font-size: 21px;
+    margin-bottom: 3px;
+  }
+
+  &__date {
+    font-size: 14px;
+    color: $dark-purple;
+  }
+}
+
+@include for-tablet-landscape-up {
+  .article-preview {
+    height: auto;
+  }
+}

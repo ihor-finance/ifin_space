@@ -1,0 +1,140 @@
+.about-me {
+  padding-top: 80px;
+}
+
+.about-me-experience {
+  padding-top: 80px;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 90px;
+  }
+
+  &__card:not(:last-of-type) {
+    margin-bottom: 85px;
+  }
+}
+
+.about-me-contacts {
+  &__wrapper {
+    background-color: $light-gray;
+    border-radius: 24px;
+    padding: 40px 35px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &__photo {
+    max-width: 220px;
+    border-radius: 50%;
+    margin-right: 30px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    cursor: pointer;
+
+    svg {
+      max-width: 30px;
+    }
+  }
+
+  &__social:last-of-type {
+    margin-right: 0;
+  }
+
+  &__social p {
+    margin-left: 5px;
+    transition: all .3s;
+  }
+
+  &__social:hover {
+    p {
+      color: $blue;
+    }
+
+    .highlighted-icon {
+      fill: $blue;
+    }
+  }
+}
+
+@include for-tablet-portrait-up {
+  .about-me {
+    padding-top: 65px;
+  }
+
+  .about-me-experience {
+    padding-top: 70px;
+  
+    &__title {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+  
+    &__card:not(:last-of-type) {
+      margin-bottom: 85px;
+    }
+  }
+
+  .about-me-contacts {
+    .container {
+      padding: 0;
+    }
+
+    &__wrapper {
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 15px;
+      border-radius: 0;
+    }
+
+    &__photo {
+      margin-right: 0;
+      margin-bottom: 30px;
+      max-width: 280px;
+    }
+
+    &__quote {
+      text-align: center;
+    }
+
+    &__socials { 
+      position: relative;
+      justify-content: center;
+    }
+  }
+}
+
+@include for-phone-only {
+  .about-me-contacts {
+    &__socials {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__quote {
+      margin-bottom: 15px;
+    }
+
+    &__social {
+      margin-right: 0;
+      max-height: 50px;
+    }
+  }
+}

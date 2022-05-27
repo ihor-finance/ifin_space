@@ -1,0 +1,98 @@
+.navbar--scrolled {
+  box-shadow: 0 0 24px 1px rgb(0 0 0 / 8%);
+  transition: all .3s;
+}
+
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: $white;
+  position: fixed;
+  transition: all .3s;
+  top: 0;
+  width: 100vw;
+  z-index: 2;
+
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-menu {
+    display: flex;
+    align-items: center;
+  }
+
+  &-menu__route {
+    padding: 0 15px;
+    margin-right: 25px;
+  }
+
+  &-menu__text {
+    transition: all .3s;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+  }
+
+  &-menu__text--highlighted {
+    color: $blue;
+    transition: all .3s;
+  }
+
+  &-menu__text::after { 
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -8px;
+    left: 0;
+    background-color: $blue;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  &-menu__text:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  &-menu__route:last-of-type {
+    margin-right: 0;
+  }
+
+  &__logo {
+    font-size: 28px;
+    color: $black;
+    font-family: $nunito;
+    font-weight: 700;
+  }
+
+  &__logo--dark {
+    color: $red;
+  }
+}
+
+@include for-tablet-landscape-up {
+  .navbar {
+    &__logo {
+      font-size: 20px;
+    }
+
+    &-menu__route { 
+      padding: 0 10px;
+      margin-right: 15px;
+    }
+  }
+}
+
+@include for-tablet-portrait-up {
+  .navbar {
+    &-menu__route { 
+      margin-right: 10px;
+    }
+  }
+}

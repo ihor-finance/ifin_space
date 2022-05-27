@@ -1,0 +1,9 @@
+.code-block {
+  font-family: $roboto;
+}
+
+@include for-tablet-portrait-up {
+  .code-block {
+    font-size: 14px;
+  }
+}

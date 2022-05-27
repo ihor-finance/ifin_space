@@ -1,0 +1,31 @@
+.article {
+  padding-top: 80px;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__image {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+  }
+
+  &__title, 
+  &__image, 
+  &__paragraph, 
+  &__asset-block, 
+  &__unordered-list,
+  &__code-block,
+  &__heading {
+    margin-bottom: $article_mb;
+  }
+}
+
+@include for-tablet-landscape-up {
+  .article {
+    &__image {
+      height: 400px;
+    }
+  }
+}
