@@ -1,5 +1,5 @@
-import { FC, useEffect, useState } from "react";
-import Lottie from "react-lottie";
+import { FC, useEffect, useRef, useState } from "react";
+import lottie from "lottie-web";
 import { Entry } from "contentful";
 
 import animationData from "../assets/lottie/programmer.json";
@@ -11,25 +11,30 @@ import services from "../services";
 import { ArticlePreview as ArticlePreviewType } from "../types";
 import ArticlePreview from "../components/ArticlePreview";
 
-const animationOptions = {
-  loop: true,
-  autoplay: true,
-  animationData,
-  rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice"
-  }
-};
-
 const Main: FC = () => {
   const [previews, setPreviews] = useState<Entry<ArticlePreviewType>[]>([]);
+  const animationContainer = useRef<null | HTMLDivElement>(null);
 
   const fetchPreviews = async () => {
     const fetchedPreviews = await services.contentfulService.getPreviews();
     setPreviews(fetchedPreviews.items);
   };
 
+  const loadAnimation = () => {
+    if (animationContainer.current && !animationContainer.current.children.length) {
+      lottie.loadAnimation({
+        container: animationContainer.current,
+        renderer: "svg",
+        animationData,
+        loop: true,
+        autoplay: true
+      });
+    }
+  };
+
   useEffect(() => {
     fetchPreviews();
+    loadAnimation();
   }, []);
 
   return (
@@ -37,9 +42,7 @@ const Main: FC = () => {
       <section className="main-first-screen">
         <div className="container">
           <div className="main-first-screen__wrapper">
-            <div className="main-first-screen__animation">
-              <Lottie options={animationOptions} />
-            </div>
+            <div className="main-first-screen__animation" ref={animationContainer}></div>
             <div className="main-first-screen__texts">
               <div className="main-first-screen__phrase">
                 Hi! My name is <span className="highlighted">Nikita Isay</span>, 
