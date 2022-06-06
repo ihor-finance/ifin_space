@@ -1,0 +1,16 @@
+.footer {
+  padding: 45px 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 18px;
+  }
+
+  @include for-phone-only {
+    p {
+      font-size: 14px;
+    }
+  }
+}

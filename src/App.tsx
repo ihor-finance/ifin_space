@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
+import Footer from "./components/Footer";
 
 import AboutMe from "./pages/AboutMe";
 import Main from "./pages/Main";
@@ -22,6 +23,7 @@ const App: FC = () => {
           {/* <Route path="*" element={<NotFound />}/> */}
         </Routes>
       </main>
+      <Footer />
     </ScrollToTop>
   );
 };
