@@ -5,19 +5,24 @@ import { Entry } from "contentful";
 import animationData from "../assets/lottie/programmer.json";
 
 import ContentBlock from "../components/ContentBlock";
+import ArticlePreview from "../components/ArticlePreview";
 
-import services from "../services";
+import ContentfulService from "../services/contentful";
 
 import { ArticlePreview as ArticlePreviewType } from "../types";
-import ArticlePreview from "../components/ArticlePreview";
+
+const contentfulInstance = new ContentfulService(
+  process.env.REACT_APP_CONTENTFUL_SPACE_ID || "",
+  process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN || ""
+);
 
 const Main: FC = () => {
   const [previews, setPreviews] = useState<Entry<ArticlePreviewType>[]>([]);
   const animationContainer = useRef<null | HTMLDivElement>(null);
 
   const fetchPreviews = async () => {
-    const fetchedPreviews = await services.contentfulService.getPreviews();
-    setPreviews(fetchedPreviews.items);
+    const fetchedPreviews = await contentfulInstance.getPreviews();
+    setPreviews(fetchedPreviews.items.reverse());
   };
 
   const loadAnimation = () => {

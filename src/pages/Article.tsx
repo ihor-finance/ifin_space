@@ -8,22 +8,27 @@ import Paragraph from "../components/Paragraph";
 import UnorderedList from "../components/UnorderedList";
 import CodeBlock from "../components/CodeBlock";
 
-import services from "../services";
-
 import { Article as ArticleType, NodeType } from "../types";
 
 import { modifyBlockCodes } from "../utils/contentful";
 
+import ContentfulService from "../services/contentful";
+
 type Params = {
   articleId: string
 }
+
+const contentfulInstance = new ContentfulService(
+  process.env.REACT_APP_CONTENTFUL_SPACE_ID || "",
+  process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN || ""
+);
 
 const Article: FC = () => {
   const [article, setArticle] = useState<Entry<ArticleType> | null>(null);
   const { articleId } = useParams<Params>();
 
   const fetchArticle = useCallback(async () => {
-    const fetchedArticle = await services.contentfulService.getArticle(articleId || "");
+    const fetchedArticle = await contentfulInstance.getArticle(articleId || "");
     const modifiedContent = modifyBlockCodes(fetchedArticle.fields.content.content);
     
     fetchedArticle.fields.content.content = modifiedContent;

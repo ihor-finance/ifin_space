@@ -10,7 +10,7 @@ class ContentfulService {
       accessToken: accessToken
     });
   }
-
+  
   async getPreviews(): Promise<contentful.EntryCollection<ArticlePreview>> {
     const entries: contentful.EntryCollection<ArticlePreview> = await this.client.getEntries({
       order: "sys.createdAt",
