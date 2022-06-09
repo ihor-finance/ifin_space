@@ -14,7 +14,7 @@ const CodeBlock: FC<CodeBlockProps> = ({ value }) => {
         text={value.content[0].value}
         theme={dracula}
         showLineNumbers={false}
-        language="js"
+        language="jsx"
         startingLineNumber
       />
     </div>
