@@ -5,7 +5,8 @@
     },
     "footer": {
       "footer_link": "https://u24.gov.ua",
-      "footer_link_text": "STOP WAR IN UKRAINE1"
+      "footer_link_text": "STOP WAR IN UKRAINE",
+      "footer_image": "https://nikitaisay.s3.eu-central-1.amazonaws.com/flag.jpeg"
     },
     "navbar": {
       "logo": "< Nikita<span class='navbar__logo--dark'>Isay</span> />",

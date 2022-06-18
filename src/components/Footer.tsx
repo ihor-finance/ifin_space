@@ -13,6 +13,10 @@ const Footer: FC = () => {
         rel="noreferrer"
       >
         {parseWithHtml(content.components.footer.footer_link_text)}
+        <img 
+          src={content.components.footer.footer_image} 
+          alt={content.components.footer.footer_link_text} 
+        />
       </a>
     </footer>
   );
