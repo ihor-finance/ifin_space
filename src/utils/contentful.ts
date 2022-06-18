@@ -1,4 +1,4 @@
-import { BlockCode, Content, MarkType, NodeType } from "../types";
+import { BlockCode, Content, Mark, MarkType, NodeType } from "../types";
 
 export const createBlockCode = (value: string): BlockCode => {
   return {
@@ -14,10 +14,31 @@ export const createBlockCode = (value: string): BlockCode => {
 };
 
 export const checkIsCode = (content: Content): boolean => {
-  if (content.nodeType === NodeType.PARAGRAPH) {
-    return content.content[0].marks.some((m) => m.type === MarkType.CODE);
+  if (content.nodeType === NodeType.PARAGRAPH && content.content.length) {
+    return content.content[0].nodeType === NodeType.TEXT 
+      && content.content[0].marks.some((m) => m.type === MarkType.CODE);
   }
   return false;
+};
+
+export const getAllMarks = (marks: Mark[]): string => {
+  let allMarks = "";
+  marks.forEach((m) => {
+    switch(m.type) {
+    case MarkType.BOLD:
+      allMarks += " bold";
+      break;
+    case MarkType.ITALIC:
+      allMarks += " italic";
+      break;
+    case MarkType.UNDERLINE:
+      allMarks += " underline";
+      break;
+    default:
+      break;
+    }
+  });
+  return allMarks;
 };
 
 export const joinCodeBlocks = (codeBlocks: BlockCode[]): BlockCode => {
@@ -35,7 +56,7 @@ export const modifyBlockCodes = (content: Content[]): Content[] => {
 
     if (!isCode) {
       modifiedContent.push(val);
-    } else if (val.nodeType === NodeType.PARAGRAPH) {
+    } else if (val.nodeType === NodeType.PARAGRAPH && val.content[0].nodeType === NodeType.TEXT) {
       const blockCode = createBlockCode(val.content[0].value);
       const isNextValCode = !!content[idx + 1] && checkIsCode(content[idx + 1]);
 
@@ -45,7 +66,7 @@ export const modifyBlockCodes = (content: Content[]): Content[] => {
         const joinedCodeBlocks = joinCodeBlocks(blockCodes);
         modifiedContent.push(joinedCodeBlocks);
         blockCodes = [];
-      }
+      } 
     }
   });
 

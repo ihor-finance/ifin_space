@@ -26,6 +26,12 @@ const Heading: FC<HeadingProps> = ({ heading }) => {
         {heading.content.map((h) => h.value)}
       </h1>
     );
+  default:
+    return (
+      <h3 className="heading heading--3">
+        {heading.content.map((h) => h.value)}
+      </h3>
+    );
   }
 };
 

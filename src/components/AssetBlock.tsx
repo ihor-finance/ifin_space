@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { AssetBlock as AssetBlockType } from "../types";
 
 type AssetBlockProps = {

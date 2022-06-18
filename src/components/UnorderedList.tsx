@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { UnorderedList as UnorderedListType } from "../types";
+
+import { NodeType, UnorderedList as UnorderedListType } from "../types";
 
 type UnorderedListProps = {
   list: UnorderedListType
@@ -8,12 +9,16 @@ type UnorderedListProps = {
 const UnorderedList: FC<UnorderedListProps> = ({ list }) => {
   return (
     <ul className="unordered-list">
-      {list.content.map((li) => (
-        <li className="unordered-list__item" key={`${li.nodeType}${JSON.stringify(li.content)}`}>
+      {list.content.map((li, idx) => (
+        <li className="unordered-list__item" key={`${li.nodeType}${idx}`}>
           {li.content.map((p) => {
-            return p.content.map((v) => (
-              <p key={`${li.nodeType}${v.value}`}>&emsp;•&ensp;{v.value}</p>
-            ));
+            return p.content.map((v) => {
+              if (v.nodeType === NodeType.TEXT) {
+                return (
+                  <p key={`${li.nodeType}${v.value}`}>&emsp;•&ensp;{v.value}</p>
+                );
+              }
+            });
           })}
         </li>
       ))}

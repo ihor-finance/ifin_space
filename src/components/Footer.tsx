@@ -7,11 +7,16 @@ import { parseWithHtml } from "../utils/content";
 const Footer: FC = () => {
   return (
     <footer className="footer">
-      <a href="https://u24.gov.ua" target="_blank" rel="noreferrer">
-        {parseWithHtml(content.components.footer.footer_link)}
+      <a 
+        href={content.components.footer.footer_link} 
+        target="_blank" 
+        rel="noreferrer"
+      >
+        {parseWithHtml(content.components.footer.footer_link_text)}
       </a>
     </footer>
   );
+
 };
 
 export default Footer;

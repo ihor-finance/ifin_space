@@ -11,13 +11,15 @@
     object-fit: cover;
   }
 
+  &__hr,
   &__title, 
-  &__image, 
+  &__image,
+  &__heading,
   &__paragraph, 
-  &__asset-block, 
-  &__unordered-list,
   &__code-block,
-  &__heading {
+  &__asset-block,
+  &__ordered-list,
+  &__unordered-list {
     margin-bottom: $article_mb;
   }
 }

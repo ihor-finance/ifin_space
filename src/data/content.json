@@ -4,7 +4,8 @@
       "working_period": "from $ till $"
     },
     "footer": {
-      "footer_link": "STOP WAR IN UKRAINE"
+      "footer_link": "https://u24.gov.ua",
+      "footer_link_text": "STOP WAR IN UKRAINE1"
     },
     "navbar": {
       "logo": "< Nikita<span class='navbar__logo--dark'>Isay</span> />",

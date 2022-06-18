@@ -3,10 +3,10 @@ import { FC, useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 
 import AssetBlock from "../components/AssetBlock";
-import Heading from "../components/Heading";
 import Paragraph from "../components/Paragraph";
 import UnorderedList from "../components/UnorderedList";
 import CodeBlock from "../components/CodeBlock";
+import OrderedList from "../components/OrderedList";
 
 import { Article as ArticleType, NodeType } from "../types";
 
@@ -72,22 +72,10 @@ const Article: FC = () => {
                 <UnorderedList list={entity} />
               </div>
             );
-          case NodeType.HEADING_3:
+          case NodeType.ORDERED_LIST:
             return (
-              <div className="article__heading" key={idx}>
-                <Heading heading={entity} />
-              </div>
-            );
-          case NodeType.HEADING_2:
-            return (
-              <div className="article__heading" key={idx}>
-                <Heading heading={entity} />
-              </div>
-            );
-          case NodeType.HEADING_1:
-            return (
-              <div className="article__heading" key={idx}>
-                <Heading heading={entity} />
+              <div className="article__ordered-list" key={idx}>
+                <OrderedList list={entity} />
               </div>
             );
           case NodeType.BLOCK_CODE:
@@ -96,6 +84,60 @@ const Article: FC = () => {
                 <CodeBlock value={entity} />
               </div>
             );
+          case NodeType.HEADING_1:
+            return (
+              <div className="article__heading" key={idx}>
+                <h1 className="heading heading--1">
+                  {entity.content.map((h) => h.value)}
+                </h1>
+              </div>
+            );
+          case NodeType.HEADING_2:
+            return (
+              <div className="article__heading" key={idx}>
+                <h2 className="heading heading--2">
+                  {entity.content.map((h) => h.value)}
+                </h2>
+              </div>
+            );
+          case NodeType.HEADING_3:
+            return (
+              <div className="article__heading" key={idx}>
+                <h3 className="heading heading--3">
+                  {entity.content.map((h) => h.value)}
+                </h3>
+              </div>
+            );
+          case NodeType.HEADING_4:
+            return (
+              <div className="article__heading" key={idx}>
+                <h3 className="heading heading--3">
+                  {entity.content.map((h) => h.value)}
+                </h3>
+              </div>
+            );
+          case NodeType.HEADING_5:
+            return (
+              <div className="article__heading" key={idx}>
+                <h3 className="heading heading--3">
+                  {entity.content.map((h) => h.value)}
+                </h3>
+              </div>
+            );
+          case NodeType.HEADING_6:
+            return (
+              <div className="article__heading" key={idx}>
+                <h3 className="heading heading--3">
+                  {entity.content.map((h) => h.value)}
+                </h3>
+              </div>
+            );
+          case NodeType.HR:
+            return (
+              <hr className="article__hr" key={idx} />
+            );
+          default:
+            break;
           }
         })}
       </div>

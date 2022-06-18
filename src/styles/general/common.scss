@@ -30,6 +30,11 @@ p {
   line-height: 26px;
 }
 
+hr {
+  border: none;
+  border-bottom: 1px solid $light;
+}
+
 .container {
   width: 100%;
   max-width: 1250px;
@@ -39,6 +44,18 @@ p {
 
 .highlighted {
   color: $blue;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .highlighted-icon {
