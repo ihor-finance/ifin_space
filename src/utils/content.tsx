@@ -1,4 +1,4 @@
-import parse from "react-html-parser";
+import parse from "html-react-parser";
 
 export const parseWithVars = (text = "", args: string[] = []): string => {
   let idx = 0;
