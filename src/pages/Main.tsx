@@ -11,6 +11,10 @@ import ContentfulService from "../services/contentful";
 
 import { ArticlePreview as ArticlePreviewType } from "../types";
 
+import content from "../data/content.json";
+
+import { parseWithHtml } from "../utils/content";
+
 const contentfulInstance = new ContentfulService(
   process.env.REACT_APP_CONTENTFUL_SPACE_ID || "",
   process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN || ""
@@ -49,36 +53,21 @@ const Main: FC = () => {
           <div className="main-first-screen__wrapper">
             <div className="main-first-screen__animation" ref={animationContainer}></div>
             <div className="main-first-screen__texts">
-              <div className="main-first-screen__phrase">
-                Hi! My name is <span className="highlighted">Nikita Isay</span>, 
-                I am a tech person with experience in software development.
-              </div>
-              <div className="main-first-screen__phrase">
-                I&#39;m interested in <span className="highlighted">front-end</span>, <span className="highlighted"> back-end </span> 
-                development and <span className="highlighted"> blockchain</span> technologies.
-                I really serious about creating useful and scalable software products, powered by modern technologies.
-              </div>
-              <div className="main-first-screen__phrase">
-                This is my personal blog where I share my knowledges with everyone who 
-                also interested in software development.
-              </div>
+              {(content.pages.main.phrases || []).map((phrase) => (
+                <div className="main-first-screen__phrase" key={phrase}>{parseWithHtml(phrase)}</div>
+              ))}
             </div>
           </div>
         </div>
       </section>
       <div className="main-content-block">
         <ContentBlock>
-          <p>
-          One of my qualities is a strong desire to learn.
-          Personal development is about challenging yourself. 
-          You can never see any improvements if you stick to your comfort zone. 
-          If you stop growing, you drown.
-          </p>
+          <p>{parseWithHtml(content.pages.main.quote)}</p>
         </ContentBlock>
       </div>
       <section className="main-blog">
         <div className="container">
-          <h2 className="main-blog__title underlined">Blog</h2>
+          <h2 className="main-blog__title underlined">{content.pages.main.blog}</h2>
           <ul className="main-blog-articles-list">
             {previews.map((preview) => (
               <li className="main-blog-articles-list__article" key={preview.sys.id}>

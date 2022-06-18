@@ -2,14 +2,18 @@ import { FC, PropsWithChildren } from "react";
 
 import { ReactComponent as LinkIcon } from "../assets/images/link_icon.svg";
 
+import content from "../data/content.json";
+
+import { parseWithVars } from "../utils/content";
+
 type ExperienceCardProps = {
-  logo: JSX.Element,
+  logo: string,
   from: string,
   till: string,
   title: string,
   position: string,
-  link: string,
-  stack: string[]
+  link?: string,
+  stack?: string[]
 }
 
 const ExperienceCard: FC<PropsWithChildren<ExperienceCardProps>> = ({ 
@@ -18,22 +22,24 @@ const ExperienceCard: FC<PropsWithChildren<ExperienceCardProps>> = ({
   from, 
   till, 
   position,
-  stack,
+  stack = [],
   children,
   link
 }) => {
   return (
     <div className="experience-card">
       <div className="experience-card__logo">
-        {logo}
+        <img src={logo} alt="company logo" />
       </div>
       <div className="experience-card__info">
-        <a className="experience-card__company" href={link} target="_blank" rel="noreferrer">
-          {title}<LinkIcon />
-        </a>
+        {link && (
+          <a className="experience-card__company" href={link} target="_blank" rel="noreferrer">
+            {title}<LinkIcon />
+          </a>
+        )}
         <p className="experience-card__position">{position}</p>
         <p className="experience-card__working-period">
-          from {from} till {till}
+          {parseWithVars(content.components.experience_card.working_period, [from, till])}
         </p>
         <p className="experience-card__description">{children}</p>
         <div className="experience-card__stack">

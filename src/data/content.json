@@ -1,0 +1,92 @@
+{
+  "components": {
+    "experience_card": {
+      "working_period": "from $ till $"
+    },
+    "footer": {
+      "footer_link": "STOP WAR IN UKRAINE"
+    },
+    "navbar": {
+      "logo": "< Nikita<span class='navbar__logo--dark'>Isay</span> />",
+      "menu": {
+        "blog": "Blog",
+        "about_me": "About me"
+      }
+    }
+  },
+  "pages": {
+    "main": {
+      "phrases": [
+        "Hi! My name is <span class='highlighted'>Nikita Isay</span>, I am a tech person with experience in software development.",
+        "I'm interested in <span class='highlighted'>front-end</span>, <span class='highlighted'> back-end </span> development and <span class='highlighted'> blockchain</span> technologies. I really serious about creating useful and scalable software products, powered by modern technologies.",
+        "This is my personal blog where I share my knowledges with everyone who  also interested in software development."
+      ],
+      "quote": "One of my qualities is a strong desire to learn. Personal development is about challenging yourself. You can never see any improvements if you stick to your comfort zone. If you stop growing, you drown.",
+      "blog": "Blog"
+    },
+    "about_me": {
+      "companies": [
+        {
+          "logo": "https://nikitaisay.s3.eu-central-1.amazonaws.com/madapp.svg",
+          "company_name": "MadAppGang",
+          "position": "Front-End developer",
+          "website": "https://madappgang.com",
+          "from": "February 2020",
+          "till": "January 2022",
+          "description": "As a front-end developer at Madappgang, I've developed different web sites and web applications. I took a part in developing admin panel and web app for project with its own unique system of managing restaurant's orders and business. Also I've developed a Madappgang corporate website. I took a part in the developing project that helps track personal goals progress of each company employee  and organanize task planning proccess. I worked with different modern technologies during this period, such as JavaScript, Typescript, React, Redux and etc.",
+          "technologies": [
+            "JavaScript",
+            "TypeScript",
+            "React",
+            "Redux",
+            "GatsbyJS",
+            "StrapiJS",
+            "HTML",
+            "CSS",
+            "Contentful"
+          ]
+        },
+        {
+          "logo": "https://nikitaisay.s3.eu-central-1.amazonaws.com/spd_logo.svg",
+          "company_name": "SPD-Ukraine",
+          "position": "Node.js developer",
+          "website": "https://spd-ukraine.com",
+          "from": "January 2022",
+          "till": "now",
+          "description": "As a node.js developer at SPD-Ukraine, I am working at <a href='https://www.poynt.com' target='_blank' rel='noreferrer' class='highlighted'>Poynt</a>. It is an all-in-one payment platform, offers diverse benefits to businesses, with its contactless, fast, secure, and safe payment processing solution. Poynt is powered by <a href='https://ua.godaddy.com' target='_blank' rel='noreferrer' class='highlighted'>GoDaddy</a>. I am taking a part in the developing proccess of front-end and back-end parts of the project",
+          "technologies": [
+            "JavaScript",
+            "TypeScript",
+            "NodeJS",
+            "Express",
+            "MySQL",
+            "EmberJS",
+            "HTML",
+            "CSS",
+            "ElasticSearch"
+          ]
+        }
+      ],
+      "socials": [
+        {
+          "logo": "https://nikitaisay.s3.eu-central-1.amazonaws.com/git_logo.svg",
+          "title": "GitHub",
+          "link": "https://github.com/nikitaisay"
+        },
+        {
+          "logo": "https://nikitaisay.s3.eu-central-1.amazonaws.com/linkedin_logo.svg",
+          "title": "Linkedin",
+          "link": "https://www.linkedin.com/in/nikita-isay-20a2651b5"
+        },
+        {
+          "logo": "https://nikitaisay.s3.eu-central-1.amazonaws.com/gmail.svg",
+          "title": "nikita.isay4work@gmail.com",
+          "link": "mailto:nikita.isay4work@gmail.com"
+        }
+      ],
+      "quote": "Concern for man and his fate must always form the chief interest of all technical endeavors.<br /> Never forget this in the midst of your diagrams and equations.",
+      "my_experience": "My experience",
+      "quote_photo": "https://nikitaisay.s3.eu-central-1.amazonaws.com/nik.c75087b2a299e1b2de98.jpg"
+    }
+  }
+}
