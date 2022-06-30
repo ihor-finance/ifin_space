@@ -2,7 +2,7 @@ import { FC, useEffect, useRef, useState } from "react";
 import lottie from "lottie-web";
 import { Entry } from "contentful";
 
-import animationData from "../assets/lottie/programmer.json";
+import animationData from "../assets/lottie/trader.json";
 
 import ContentBlock from "../components/ContentBlock";
 import ArticlePreview from "../components/ArticlePreview";
