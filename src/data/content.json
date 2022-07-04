@@ -9,7 +9,7 @@
       "footer_image": "https://nikitaisay.s3.eu-central-1.amazonaws.com/flag.jpeg"
     },
     "navbar": {
-      "logo": "Ihor<span class='navbar__logo--dark'>Finance</span>",
+      "logo": "Іhor<span class='navbar__logo--dark'>Finance</span>",
       "menu": {
         "blog": "Блог",
         "about_me": "Про мене"
